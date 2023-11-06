@@ -1,0 +1,35 @@
+.mt-1{
+    margin-left: 15px;
+    font-size: medium;
+}
+
+.mt-2{
+    margin-right: 15px;
+    margin-left: 15px;
+    font-size: small;
+    text-decoration: none;
+}
+
+.mt-3{
+    margin: 15px;
+    font-size: larger;
+}
+
+.header{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 5px;
+    background-color:rgba(32, 32, 35, 1);
+}
+.navbar{
+    background-color: rgba(55, 56, 61, 1);
+    padding: 5px;
+}
+
+.grid{
+    border-color: rgba(55, 56, 61, 1);
+}
+div{
+    display: block;
+}
+
