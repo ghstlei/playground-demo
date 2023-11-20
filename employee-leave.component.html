@@ -1,1 +1,107 @@
-<p>employee-leave works!</p>
+<ng-container>
+    <div class="mt-3" style="color: #333333">
+        Listagem de Afastamento de Funcionários
+      </div>
+      <div class="mt-2">
+      </div>
+    </ng-container>
+    <ng-container>
+        <table>
+            <tr>
+                <button class="outline-none" (click)="addLeaveModal.style.display = 'block'">+ Adicionar</button>
+            </tr>
+            <tr>
+                <th>ID</th>
+                <th>Ações</th>
+                <th>Nome</th>
+                <th>Motivo</th>
+                <th>Data</th>
+            </tr>
+            <tr *ngFor="let leave of empList">
+                <td>{{leave.id}}</td>
+                <td><i>Icons</i></td>  
+                <td>{{leave.employee_id}}</td>
+                <td>{{leave.type}}</td>
+                <td>{{leave.start}}</td>
+            </tr>
+        </table>
+    </ng-container>
+    
+
+<!-- The Modal -->
+<div id="addLeave" class="modal" #addLeaveModal>
+  <div class="modal-content">
+    <span class="close" (click)="addLeaveModal.style.display = 'none'">&times;</span>
+    <form [formGroup]="empDetail">
+        <div class="mt-4">Adicionar Funcionário</div>
+
+        <div class="mt-5">
+            <label>Empresa</label>
+            <select class="input" formControlName="company_id">
+              <option selected>Selecionar</option>
+              <option *ngFor="let client of client" [value]="client.id">{{client.name}}</option>
+            </select>
+          </div>
+
+          <div class="mt-5">
+            <label>Nome do Funcionário</label>
+            <select class="input" formControlName="employee_id">
+              <option [ngValue]="null">Selecionar</option>
+              <option *ngFor="let employee of employee" [value]="employee.id">{{employee.name}}</option>
+            </select>
+          </div>
+
+          <div class="mt-5">
+            <label>Motivo do Afastamento</label>
+            <select class="input" formControlName="employee_leave_type_id">
+              <option>Selecionar</option>
+              <option>Licença Maternidade</option>
+              <option>Licença Paternidade</option>
+              <option>Acidente de Trabalho</option>
+              <option>Férias</option>
+              <option>Morte</option>
+            </select>
+          </div>
+
+          <div class="mt-5">
+            <label>Início do Afastamento</label>
+            <input type="date" formControlName="start" class="input">
+          </div>
+
+          <div class="mt-5">
+            <label>Dias de Afastamento</label>
+            <input class="input" type="number" formControlName="days">
+            </div>
+
+          <div class="mt-5">
+            <label>Data de Retorno</label>
+            <input type="date" formControlName="end" class="input">
+          </div>
+
+          <div class="mt-5">
+            <label>Tipo de Afastamento</label>
+            <select class="input" formControlName="type">
+              <option>Selecionar</option>
+              <option>Típico</option>
+              <option>Trajeto</option>
+              <option>Doença Profissional</option>
+            </select>
+          </div>
+
+        <div class="mt-6">* Campo obrigatório</div>
+    <div class="button">
+        <button class="mt-5" (click)="addLeaveModal.style.display = 'none'">Cancelar</button>
+        <button class="mt-5" (click)="addLeave()">Salvar</button>
+    </div>
+
+
+<!-- Script to open and close the modal -->
+<script>
+function openModal() {
+  document.getElementById("addEmployee").style.display = "block";
+}
+
+function closeModal() {
+  document.getElementById("addEmployee").style.display = "none";
+}
+</script>

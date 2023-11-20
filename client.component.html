@@ -1,6 +1,67 @@
+
 <ng-container>
-<div class="mt-3" style="color: #333333">Listagem de Clientes</div>
-  <div class="mt-2">
-    <app-grid></app-grid>
+    <div class="mt-3" style="color: #333333">
+        Listagem de Clientes
+      </div>
+      <div class="mt-2">
+      </div>
+    </ng-container>
+    <ng-container>
+        <table>
+            <tr>
+              <button class="outline-none" (click)="addJobModal.style.display = 'block'">+ Adicionar</button>
+            </tr>
+            <tr>
+                <th>ID</th>
+                <th>Ações</th>
+                <th>Nome</th>
+            </tr>
+            <tr *ngFor="let client of cltList">
+                <td>{{client.id}}</td>
+                <td><i>Icons</i></td>
+                <td>{{client.name}}</td>
+            </tr>
+        </table>
+    </ng-container>
+    
+
+<!-- The Modal -->
+<div id="addJob" class="modal" #addJobModal>
+  <div class="modal-content">
+    <span class="close" (click)="addJobModal.style.display = 'none'">&times;</span>
+      <form [formGroup]="cltDetail">
+        <div class="mt-4">Adicionar Cargo</div>
+
+        <div class="mt-5">
+          <label>ID*</label>
+          <br>
+          <input class="input" type="number" formControlName="id">
+        </div>
+
+        <div class="mt-5">
+          <label>Nome*</label>
+          <br>
+          <input class="input" type="text" formControlName="name">
+        </div>
+
+        <div class="mt-6">* Campo obrigatório</div>
+
+    </form>
+    <div class="button">
+        <button class="mt-5" (click)="addJobModal.style.display = 'none'">Cancelar</button>
+        <button class="mt-5" (click)="addClient()">Salvar</button>
+    </div>
+
   </div>
-</ng-container>
+</div>
+
+<!-- Script to open and close the modal -->
+<script>
+function openModal() {
+  document.getElementById("addEmployee").style.display = "block";
+}
+
+function closeModal() {
+  document.getElementById("addEmployee").style.display = "none";
+}
+</script>

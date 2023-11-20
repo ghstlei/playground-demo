@@ -1,0 +1,123 @@
+table,th,td{
+    background-color: rgba(242, 242, 242, 1);
+    color: #333333;
+    text-align: left;
+    border: 1px solid #333333;
+    border-collapse: collapse;
+    font-family: Arial;
+    font-size: small;
+    border-color: rgba(213, 212, 217, 1);
+    width: 1280px;
+    
+    }
+    
+    th, td{
+        background-color: rgba(255, 255, 255, 1);
+        padding: 10px;
+    }
+    
+    table{
+        margin-left: 15px;
+    }
+    
+    .mt-1{
+        margin-left: 15px;
+        font-size: medium;
+    }
+    
+    .mt-2{
+        margin-right: 15px;
+        margin-left: 15px;
+        font-size: small;
+        text-decoration: none;
+    }
+    
+    .mt-3{
+        margin: 15px;
+        font-size: larger;
+    }
+    
+    
+.button{
+    text-align: right;
+    margin-right: 30px;
+}
+.input{
+    width: 95%;
+    height: 25px;
+}
+
+.outline-none{
+   outline: none;
+   border: none;
+   padding: 10px;
+   text-decoration: solid;
+}
+
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    font-family: Arial;
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .add{
+    margin-right: 15px;
+    margin-left: 15px;
+    font-size: small;
+    padding: 5px;
+
+}
+
+
+
+.mt-4{
+    margin-left: 10px;
+    padding: 10px;
+    font-size: medium;
+}
+
+.mt-5{
+    margin-left: 10px;
+    padding: 10px;
+    font-size: small;
+    text-decoration: none;
+}
+
+.mt-6{
+    margin-left: 10px;
+    padding: 10px;
+    font-size: smaller;
+}

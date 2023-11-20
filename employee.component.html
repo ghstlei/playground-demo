@@ -1,1 +1,110 @@
-<p>employee works!</p>
+<ng-container>
+    <div class="mt-3" style="color: #333333">
+        Listagem de Funcionários
+      </div>
+      <div class="mt-2">
+      </div>
+    </ng-container>
+    <ng-container>
+        <table>
+            <tr>
+                <button class="outline-none" (click)="addEmployeeModal.style.display = 'block'">+ Adicionar</button>
+            </tr>
+            <tr>
+                <th>ID</th>
+                <th>Ações</th>
+                <th>Nome</th>
+                <th>CPF</th>
+                <th>Tipo</th>
+            </tr>
+            <tr *ngFor="let employee of empList">
+                <td>1</td>
+                <td><i>Icons</i></td>
+                <td>{{employee.name}}</td>
+                <td>{{employee.national_identity}}</td>
+                <td>{{employee.type}}</td>
+            </tr>
+        </table>
+    </ng-container>
+    
+    <!-- Button to open the modal -->
+
+
+<!-- The Modal -->
+<div id="addEmployee" class="modal" #addEmployeeModal>
+  <div class="modal-content">
+    <span class="close" (click)="addEmployeeModal.style.display = 'none'">&times;</span>
+    <form>
+        <div class="mt-4">Adicionar Funcionário</div>
+
+        <div class="mt-5">
+          <label>Empresa</label>
+          <select class="input">
+            <option selected>Selecionar</option>
+            <option></option>
+          </select>
+        </div>
+
+        <div class="mt-5">
+          <label>Nome</label>
+          <input class="input" type="text">
+        </div>
+
+        <div class="mt-5">
+          <label >CPF</label>
+          <input class="input" type="number">
+        </div>
+
+        <div class="mt-5">
+          <label >Data de Nascimento</label>
+          <input class="input" type="date">
+        </div>
+
+        <div class="mt-5">
+          <label >Cargo</label>
+          <select class="input">
+            <option selected>Selecionar</option>
+            <option></option>
+          </select>
+        </div>
+
+        <div class="mt-5">
+          <label >Atividade</label>
+          <select class="input">
+            <option selected>Selecionar</option>
+            <option>exemplo</option>
+          </select>
+        </div>
+
+        <div class="mt-5">
+          <label >Salário</label>
+          <input class="input" type="number">
+        </div>
+
+        <div class="mt-5">
+          <label>Tipo de funcionário</label>
+          <select class="input">
+            <option selected>Selecionar</option>
+            <option></option>
+          </select>
+        </div>
+
+        <div class="mt-6">* Campo obrigatório</div>
+    </form>
+    <div class="button">
+        <button class="mt-5" (click)="addEmployeeModal.style.display = 'none'">Cancelar</button>
+        <button class="mt-5">Salvar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Script to open and close the modal -->
+<script>
+function openModal() {
+  document.getElementById("addEmployee").style.display = "block";
+}
+
+function closeModal() {
+  document.getElementById("addEmployee").style.display = "none";
+}
+</script>
