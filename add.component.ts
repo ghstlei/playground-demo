@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-add',
+  selector: 'job-add',
   templateUrl: './add.component.html',
   styleUrls: ['./add.component.scss']
 })

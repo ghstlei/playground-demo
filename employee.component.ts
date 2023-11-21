@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms'
 import { Employee } from './employee';
 import { EmployeeService } from './services/employee.service';
+import { JobService } from '../job-position/services/job-position.service';
+import { JobPosition } from '../job-position/job-position';
+import { ClientService } from '../client/services/client.service'
+import { Client } from '../client/client';
 
 @Component({
   selector: 'app-employee',
@@ -13,8 +17,11 @@ export class EmployeeComponent implements OnInit {
   empDetail !: FormGroup;
   empObj : Employee = new Employee();
   empList : Employee[] = [];
-
-  constructor(private formBuider : FormBuilder, private empService : EmployeeService){
+  job_position : JobPosition[] = [];
+  client : Client[] = [];
+  isActive: boolean = false;
+  
+  constructor(private formBuilder : FormBuilder, private empService : EmployeeService, private jobService : JobService,  private clientService : ClientService){
   }
 
   
@@ -24,7 +31,9 @@ export class EmployeeComponent implements OnInit {
     this.getAllEmployee();
 
 
-    this.empDetail = this.formBuider.group({
+    // ...
+
+    this.empDetail = this.formBuilder.group({
       id : [''],
       company_id : [''],
       name : [''],
@@ -34,10 +43,19 @@ export class EmployeeComponent implements OnInit {
       active : [''],
       salary : [''],
       type : [''],
-      
     });
-    
 
+    // GET CARGOS PARA O CAMPO SELECT
+
+    this.jobService.getAllJob().subscribe(job_position => {
+      this.job_position = job_position;
+    });
+
+// GET CLIENT PARA O CAMPO SELECT
+
+    this.clientService.getAllClient().subscribe(client => {
+      this.client = client;
+    });
   }
 
   addEmployee(){

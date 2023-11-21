@@ -17,8 +17,8 @@
                 <th>CPF</th>
                 <th>Tipo</th>
             </tr>
-            <tr *ngFor="let employee of empList">
-                <td>1</td>
+            <tr *ngFor="let employee of empList; let i = index">
+                <td>{{i + 1}}</td>
                 <td><i>Icons</i></td>
                 <td>{{employee.name}}</td>
                 <td>{{employee.national_identity}}</td>
@@ -34,66 +34,63 @@
 <div id="addEmployee" class="modal" #addEmployeeModal>
   <div class="modal-content">
     <span class="close" (click)="addEmployeeModal.style.display = 'none'">&times;</span>
-    <form>
+    <form [formGroup]="empDetail">
         <div class="mt-4">Adicionar Funcionário</div>
 
         <div class="mt-5">
           <label>Empresa</label>
-          <select class="input">
+          <select [(ngModel)]="client" class="input" formControlName="company_id">
             <option selected>Selecionar</option>
-            <option></option>
+            <option *ngFor="let client of client" [value]="client.id">{{client.name}}</option>
           </select>
         </div>
 
         <div class="mt-5">
-          <label>Nome</label>
-          <input class="input" type="text">
+          <label>Nome</label><br>
+          <input class="input" type="text" formControlName="name">
         </div>
 
         <div class="mt-5">
-          <label >CPF</label>
-          <input class="input" type="number">
+          <label>CPF</label><br>
+          <input class="input" type="text" formControlName="national_identity">
         </div>
 
         <div class="mt-5">
-          <label >Data de Nascimento</label>
-          <input class="input" type="date">
+          <label>Data de Nascimento</label>
+          <input class="input" type="date" formControlName="birthdate">
         </div>
 
         <div class="mt-5">
-          <label >Cargo</label>
-          <select class="input">
-            <option selected>Selecionar</option>
-            <option></option>
-          </select>
+          <label>Cargo</label><br>
+            <select [(ngModel)]="job_position" class="input" formControlName="job_position_id">
+              <option selected>Selecionar</option>
+              <option *ngFor="let job_position of job_position" [value]="job_position.id">{{job_position.name}}</option>
+            </select>
         </div>
 
         <div class="mt-5">
-          <label >Atividade</label>
-          <select class="input">
-            <option selected>Selecionar</option>
-            <option>exemplo</option>
-          </select>
-        </div>
-
-        <div class="mt-5">
-          <label >Salário</label>
-          <input class="input" type="number">
+          <label>Salário</label>
+          <input class="input" type="number" formControlName="salary">
         </div>
 
         <div class="mt-5">
           <label>Tipo de funcionário</label>
-          <select class="input">
+          <select class="input" formControlName="type">
             <option selected>Selecionar</option>
             <option></option>
           </select>
+        </div>
+
+        <div class="mt-5">
+          <label>Atividade</label><br>
+          <input  class="input" type="text" formControlName="active">
         </div>
 
         <div class="mt-6">* Campo obrigatório</div>
     </form>
     <div class="button">
         <button class="mt-5" (click)="addEmployeeModal.style.display = 'none'">Cancelar</button>
-        <button class="mt-5">Salvar</button>
+        <button class="mt-5" (click)="addEmployee()">Salvar</button>
     </div>
   </div>
 </div>

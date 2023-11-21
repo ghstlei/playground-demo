@@ -28,19 +28,19 @@
 <div id="addJob" class="modal" #addJobModal>
   <div class="modal-content">
     <span class="close" (click)="addJobModal.style.display = 'none'">&times;</span>
-      <form>
+      <form [formGroup]="jobDetail">
         <div class="mt-4">Adicionar Cargo</div>
 
         <div class="mt-5">
           <label>ID*</label>
           <br>
-          <input class="input" type="number">
+          <input class="input" type="number" formControlName="id">
         </div>
 
         <div  class="mt-5">
           <label>Nome do Cargo*</label>
           <br>
-          <input class="input" type="text">
+          <input class="input" type="text" formControlName="name">
         </div>
 
         <div class="mt-6">* Campo obrigatório</div>
@@ -48,7 +48,7 @@
     </form>
     <div class="button">
         <button class="mt-5" (click)="addJobModal.style.display = 'none'">Cancelar</button>
-        <button class="mt-5">Salvar</button>
+        <button class="mt-5" (click)="addJobPosition()">Salvar</button>
     </div>
 
   </div>

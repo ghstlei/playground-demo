@@ -16,8 +16,8 @@
                 <th>Ações</th>
                 <th>Nome</th>
             </tr>
-            <tr *ngFor="let client of cltList">
-                <td>{{client.id}}</td>
+            <tr *ngFor="let client of cltList; let i = index">
+                <td>{{i + 1}}</td>
                 <td><i>Icons</i></td>
                 <td>{{client.name}}</td>
             </tr>
